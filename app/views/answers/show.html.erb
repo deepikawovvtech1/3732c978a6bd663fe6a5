@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Answera:</strong>
+  <%= @answer.answerA %>
+</p>
+
+<p>
+  <strong>Answerb:</strong>
+  <%= @answer.answerB %>
+</p>
+
+<%= link_to 'Edit', edit_answer_path(@answer) %> |
+<%= link_to 'Back', answers_path %>

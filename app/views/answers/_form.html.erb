@@ -1,0 +1,35 @@
+<%= form_for(answer) do |f| %>
+  <% if answer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(answer.errors.count, "error") %> prohibited this answer from being saved:</h2>
+
+      <ul>
+      <% answer.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :answerA %>
+    <%= f.text_field :answerA %>
+  </div>
+
+  <div class="field">
+    <%= f.label :answerB %>
+    <%= f.text_field :answerB %>
+  </div>
+  
+  
+  <div class="field">
+    <!-- <input type="hidden" id="user" name="user_id" value=user.id> -->
+    <%= f.hidden_field :user_id, value: current_user.id %><br/>
+  </div>
+  <div class="field">
+  <%= f.collection_select :question_id, Question.all,:id,:question, include_blank: true %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
